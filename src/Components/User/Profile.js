@@ -77,6 +77,7 @@ const Dashboard = () => {  const [user, setUser] = useState(null);
     try {
       const response = await updateProfile(updatedData); // Update the user data
       setUser(response.data.data); // Update user state with new data
+      localStorage.setItem('imageURL', response.data.data.imageURL)
       setEditing(false); // Exit editing mode
     } catch (error) {
       setError('Failed to update user data'); // Handle errors
